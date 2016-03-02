@@ -1,0 +1,6 @@
+C:\Users\YayMuffins\Documents\Visual Studio 2015\Projects\MLKHelperGUI2\MLKHelperGUI2\bin\Release\MLKHelperGUI2.exe
+C:\Users\YayMuffins\Documents\Visual Studio 2015\Projects\MLKHelperGUI2\MLKHelperGUI2\bin\Release\MLKHelperGUI2.pdb
+C:\Users\YayMuffins\Documents\Visual Studio 2015\Projects\MLKHelperGUI2\MLKHelperGUI2\obj\Release\MLKHelperGUI2.Properties.Resources.resources
+C:\Users\YayMuffins\Documents\Visual Studio 2015\Projects\MLKHelperGUI2\MLKHelperGUI2\obj\Release\MLKHelperGUI2.csproj.GenerateResource.Cache
+C:\Users\YayMuffins\Documents\Visual Studio 2015\Projects\MLKHelperGUI2\MLKHelperGUI2\obj\Release\MLKHelperGUI2.exe
+C:\Users\YayMuffins\Documents\Visual Studio 2015\Projects\MLKHelperGUI2\MLKHelperGUI2\obj\Release\MLKHelperGUI2.pdb
