@@ -30,9 +30,8 @@ namespace MLKHelperGUI2
                 {
                     RegistryKey regKey1 = Registry.LocalMachine;
                     regKey1 = regKey1.OpenSubKey(@"SOFTWARE\\DerpyMuffinsFactory");
-                    string mlk2 = regKey1.GetValue("MLK Path").ToString();
-                    String mlkpath = ("\'" + mlk2);
-                    String songs = ( mlk2 + @"songs\");
+                    string mlkpath = regKey1.GetValue("MLK Path").ToString();
+                    String songs = ( mlkpath + @"songs\");
                     Stream inStream = File.OpenRead(@args[i]);
                     TarArchive mlkArchive = TarArchive.CreateInputTarArchive(inStream);
                     mlkArchive.ExtractContents(@songs);
