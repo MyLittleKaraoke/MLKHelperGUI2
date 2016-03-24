@@ -21,25 +21,34 @@ namespace MLKHelperGUI2
         //[STAThread]
         static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            if (args.Length == 0) { MessageBox.Show("No .MLK, no Muffins!"); }
-            else 
+            try
             {
-                for (int i = 0; i < args.Length; i++)
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                if (args.Length == 0) { MessageBox.Show("No .MLK, no Muffins!"); }
+                else 
                 {
-                    RegistryKey regKey1 = Registry.LocalMachine;
-                    regKey1 = regKey1.OpenSubKey(@"SOFTWARE\\DerpyMuffinsFactory");
-                    string mlkpath = regKey1.GetValue("MLK Path").ToString();
-                    String songs = ( mlkpath + @"songs\");
-                    Stream inStream = File.OpenRead(@args[i]);
-                    TarArchive mlkArchive = TarArchive.CreateInputTarArchive(inStream);
-                    mlkArchive.ExtractContents(@songs);
-                    mlkArchive.Close();
-                    inStream.Close();
-                    MessageBox.Show(args[i] + "Is Installed");
+                    for (int i = 0; i < args.Length; i++)
+                    {
+                        string mlkpath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\DerpyMuffinsFactory", 
+                            "MLK Path", Path.Combine(Environment.GetEnvironmentVariable("ProgramFiles(x86)"), "MyLittleKaraoke"));
+                        String songs = (Path.Combine(mlkpath, "songs"));
+                        Stream inStream = File.OpenRead(@args[i]);
+                        TarArchive mlkArchive = TarArchive.CreateInputTarArchive(inStream);
+                        mlkArchive.ExtractContents(@songs);
+                        mlkArchive.Close();
+                        inStream.Close();
+                        MessageBox.Show(args[i] + " successfully installed.");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Installation of package failed!" + Environment.NewLine + ex.Message
+                    + Environment.NewLine + Environment.NewLine + ex.StackTrace);
+            }
+            
         }
     }
 }
