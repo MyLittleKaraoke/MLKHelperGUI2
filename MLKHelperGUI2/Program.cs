@@ -30,8 +30,7 @@ namespace MLKHelperGUI2
                 {
                     for (int i = 0; i < args.Length; i++)
                     {
-                        string mlkpath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\DerpyMuffinsFactory", 
-                            "MLK Path", Path.Combine(Environment.GetEnvironmentVariable("ProgramFiles(x86)"), "MyLittleKaraoke"));
+                        string mlkpath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
                         String songs = (Path.Combine(mlkpath, "songs"));
                         Stream inStream = File.OpenRead(@args[i]);
                         TarArchive mlkArchive = TarArchive.CreateInputTarArchive(inStream);
